@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApp
 {
@@ -12,7 +12,8 @@ namespace ConsoleApp
             string SpecialCharacters = "!?-_@#$%^&*/";
             string AllTogether = LowerCaseCharacters + UpperCaseCharacters + Numbers + SpecialCharacters;
             
-            int PasswordLength = 8;
+            Console.WriteLine("Enter the number of characters for your password:");
+            int PasswordLength = int.Parse(Console.ReadLine());
 
             Random random = new Random();
             char[] PasswordArray = new char[PasswordLength];
@@ -33,9 +34,21 @@ namespace ConsoleApp
             {
                 Console.WriteLine("Your password is strong");
             }
-            else
+            else if (!HasLowerCase)
             {
-                Console.WriteLine("Your password is weak");
+                Console.WriteLine("Your password should contain lower case character");
+            }
+            else if (!HasUpperCase)
+            {
+                Console.WriteLine("Your password should contain upper case character");
+            }
+            else if (!HasNumbers)
+            {
+                Console.WriteLine("Your password should contain a number");
+            }
+            else if (!HasSpecialCharacters)
+            {
+                Console.WriteLine("Your password should contain special character");
             }
 
         }
